@@ -1,0 +1,111 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Register{% endblock %}
+
+{% block body %}
+{{parent()}}
+{{parent()}}
+<style>
+    /* Agrega estilos al contenedor */
+    .container-just {
+        max-width: 1000px;
+        margin: 0 auto;
+        background-color: rgba(236, 213, 152, 0.8);
+        padding: 20px;
+        border-radius: 5px;
+        background-size: cover;
+        background-position: center;
+        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+    }
+
+    .container {
+        max-width: 500px;
+        margin: 0 auto;
+        background-color: rgba(152, 209, 236, 0.8);
+        padding: 80px;
+        border-radius: 25px;
+        background-size: cover;
+        background-position: center;
+        box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.5);
+    }
+
+    /* Estiliza los botones */
+    .btn {
+        display: inline-block;
+        background-color: #1d4aab;
+        color: #fff;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 3px;
+        cursor: pointer;
+        margin-right: 10px;
+        margin-bottom: 10px;
+    }
+
+    /* Imagen de fondo */
+    body {
+        background-image: url(https://img.freepik.com/vector-gratis/fondo-digital-azul-copia-espacio_23-2148821698.jpg?w=826&t=st=1688845380~exp=1688845980~hmac=f074b9b550ab9f83bee9537649c9f7a7b79785190052c36fcb98540f2bdc81be);
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        background-size: 100% 100%;
+    }
+</style>
+{{ form_errors(registrationForm) }}
+
+{{ form_start(registrationForm) }}
+{# {{ form_row(registrationForm.nombre) }}
+{{ form_row(registrationForm.apellido) }}
+{{ form_row(registrationForm.correo) }}
+{{ form_row(registrationForm.username) }}
+{{ form_row(registrationForm.plainPassword, {label: 'Password' }) }}
+{{ form_row(registrationForm.agreeTerms) }} #}
+
+{# <button type="submit" class="btn">Register</button> #}
+
+<div class="container">
+    <div class="row h-100 align-items-center justify-content-center" style="min-height: 100vh;">
+        
+                <div class="d-flex align-items-center justify-content-between mb-3">
+                    
+                        <h3><i class="fa fa-user-edit me-2"></i>Registrar: TITLE</h3>
+                </div>
+                <div class="form-floating mb-3">
+                    
+                    <label for="floatingInput">Nombre:</label>
+                    {{ form_widget(registrationForm.nombre) }}
+                </div>
+
+                <div class="form-floating mb-3">
+                    
+                    <label for="floatingInput">Appellido:</label>
+                    {{ form_widget(registrationForm.apellido) }}
+                </div>
+
+                <div class="form-floating mb-3">
+                    
+                    <label for="floatingInput">Correo:</label>
+                    {{ form_widget(registrationForm.correo) }}
+                </div>
+
+                <div class="form-floating mb-3">
+                    
+                    <label for="floatingInput">Usuario:</label>
+                    {{ form_widget(registrationForm.username) }}
+                </div>
+
+                <div class="form-floating mb-4">
+                    
+                    <label for="floatingPassword">Contraseña:</label>
+                    {{ form_widget(registrationForm.plainPassword, {label: 'Password'} ) }}
+                </div>
+                {{ form_end(registrationForm) }}
+                <button type="submit" title="Ingresar" name="Ingresar"
+                    class="btn btn-primary py-3 w-100 mb-4">Registrarse</button>
+
+                <p class="text-center mb-0">¿Tienes una cuenta?
+                    <a href="{{path('app_login')}}">Iniciar sesion aqui!</a>
+                </p>
+            
+    </div>
+</div>
+{% endblock %}

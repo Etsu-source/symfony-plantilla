@@ -1,0 +1,106 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit Usuario{% endblock %}
+
+{% block body %}
+<style>
+    /* Agrega estilos al contenedor */
+    .container-just {
+        max-width: 1000px;
+        margin: 0 auto;
+        background-color: rgba(255, 255, 255, 0.8);
+        padding: 20px;
+        border-radius: 5px;
+        background-size: cover;
+        background-position: center;
+        box-shadow: 0px 0px 10px rgb(255, 255, 255);
+    }
+
+    /* Estiliza los botones */
+    .btn {
+        display: inline-block;
+        background-color: #1d5bab;
+        color: #fff;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 3px;
+        cursor: pointer;
+        margin-right: 10px;
+        margin-bottom: 10px;
+    }
+
+    .card-title {
+        font-size: 45px;
+        font-weight: bold;
+        margin-bottom: 15px;
+        color: #fff;
+        text-align: center;
+    }
+
+    .card-text {
+        font-size: 18px;
+        margin-bottom: 20px;
+        color: #fff;
+        text-align: center;
+    }
+
+    label {
+        color: rgb(255, 255, 255);
+        /* Cambia el color de la etiqueta a rojo */
+    }
+
+    /* Imagen de fondo */
+    body {
+        background-image: url(https://img.freepik.com/vector-gratis/fondo-digital-azul-copia-espacio_23-2148821698.jpg?w=826&t=st=1688845380~exp=1688845980~hmac=f074b9b550ab9f83bee9537649c9f7a7b79785190052c36fcb98540f2bdc81be);
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        background-size: 100% 100%;
+    }
+</style>
+
+<div class="container-fluid">
+    <div class="row h-100 align-items-center justify-content-center" style="min-height: 100vh;">
+        <div class="col-12 col-sm-8 col-md-6 col-lg-5 col-xl-4">
+
+            <h1>Editar usuario</h1>
+            <form id="formUsuario">
+                <div class="form-floating mb-3">
+                    <label for="nombre">Nombre:</label>
+                    <input type="text" id="nombre" name="nombre" />
+                </div>
+                <div class="form-floating mb-3">
+                    <label for="apellido">Apellido:</label>
+                    <input type="text" id="apellido" name="apellido" />
+                </div>
+                <div class="form-floating mb-3">
+                    <label for="correo">Correo:</label>
+                    <input type="text" id="correo" name="correo" />
+                </div>
+                <div class="form-floating mb-3">
+                    <label for="username">Username:</label>
+                    <input type="text" id="username" name="username" />
+                </div>
+                <div class="form-floating mb-3">
+                    <label for="password">Password:</label>
+                    <input type="password" id="password" name="password" />
+                </div class="form-floating mb-3">
+                <label for="roles">Rol:</label>
+                <div class="form-floating mb-3">
+                    <select id="roles" name="roles">
+                        <option value='["ROLE_ADMIN"]'>Administrador</option>
+                        <option value='["ROLE_USER"]'>Usuario</option>
+                    </select>
+                </div>
+                <div class="form-floating mb-3">
+
+                    <button class="btn btn-primary" id="btnGuardar">Guardar</button>
+                </div>
+            </form>
+            <a class="btn btn-primary" href="{{ path('app_usuario_index') }}">BACK</a>
+            </a>
+        </div>
+    </div>
+</div>
+
+<script src="{{ asset('js/scriptEdit.js') }}"></script>
+{% endblock %}

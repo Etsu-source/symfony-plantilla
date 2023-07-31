@@ -1,0 +1,124 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Usuario index{% endblock %}
+
+{% block body %}
+<style>
+    /* Agrega estilos al contenedor */
+    .container {
+        max-width: 1000px;
+        margin: 0 auto;
+        background-color: rgba(152, 209, 236, 0.8);
+        padding: 20px;
+        border-radius: 5px;
+
+        background-size: cover;
+        background-position: center;
+        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+    }
+
+    /* Estiliza la tabla */
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-bottom: 20px;
+    }
+
+    th,
+    td {
+        padding: 10px;
+        text-align: center;
+        border-bottom: 1px solid #ddd;
+        font-weight: bold;
+    }
+
+    th {
+        font-weight: bold;
+        color: #fff;
+    }
+
+    /* Estiliza los botones */
+    .btn {
+        display: inline-block;
+        background-color: #1d4aab;
+        color: #fff;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 3px;
+        cursor: pointer;
+        margin-right: 10px;
+        margin-bottom: 10px;
+    }
+
+    .btn:hover {
+        background-color: #23527c;
+    }
+
+    /* Estiliza el encabezado */
+    h2 {
+        font-size: 24px;
+        font-weight: bold;
+        margin-bottom: 20px;
+        color: #fff;
+        text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+    }
+
+    .row {
+        display: flex;
+        flex-wrap: wrap;
+        margin: 0 -15px;
+        justify-content: center
+    }
+
+    /* Imagen de fondo */
+    body {
+        background-image: url(https://img.freepik.com/vector-gratis/fondo-digital-azul-copia-espacio_23-2148821698.jpg?w=826&t=st=1688845380~exp=1688845980~hmac=f074b9b550ab9f83bee9537649c9f7a7b79785190052c36fcb98540f2bdc81be);
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        background-size: 100% 100%;
+    }
+</style>
+<div class="container mt-4">
+    <h1 class="row">Usuarios</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id Usuario</th>
+                <th>Nombre</th>
+                <th>Apellido</th>
+                <th>Correo</th>
+                <th>Username</th>
+                <th>Roles</th>
+                <th>Estado</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody id="micuerpo">
+            {# {% for usuario in usuarios %}
+            <tr>
+                <td>{{ usuario.idUsuario }}</td>
+                <td>{{ usuario.nombre }}</td>
+                <td>{{ usuario.apellido }}</td>
+                <td>{{ usuario.correo }}</td>
+                <td>{{ usuario.username }}</td>
+                <td>{{ usuario.password }}</td>
+                <td>{{ usuario.roles ? usuario.roles|json_encode : '' }}</td>
+                <td>{{ usuario.estado }}</td>
+                <td>
+                    <a href="{{ path('app_usuario_show', {'idUsuario': usuario.idUsuario}) }}">show</a>
+                    <a href="{{ path('app_usuario_edit', {'idUsuario': usuario.idUsuario}) }}">edit</a>
+                </td>
+            </tr>
+            {% else %}
+            <tr>
+                <td colspan="9">no records found</td>
+            </tr>
+            {% endfor %} #}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_usuario_new') }}" class="btn btn-primary">Crear nuevo usuario</a>
+</div>
+<script src="{{ asset('js/script.js') }}"></script>
+{% endblock %}

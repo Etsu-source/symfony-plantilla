@@ -1,0 +1,116 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}WELCOME!{% endblock %}
+
+{% block body %}
+<style>
+    /* Imagen de fondo */
+    body {
+        background-image: url(https://img.freepik.com/vector-gratis/fondo-digital-azul-copia-espacio_23-2148821698.jpg?w=826&t=st=1688845380~exp=1688845980~hmac=f074b9b550ab9f83bee9537649c9f7a7b79785190052c36fcb98540f2bdc81be);
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        background-size: cover;
+        font-family: Arial, sans-serif;
+        font-size: 16px;
+        line-height: 1.5;
+        color: #ffffff;
+    }
+
+    .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 20px;
+    }
+
+    .row {
+        display: flex;
+        flex-wrap: wrap;
+        margin: 0 -15px;
+        justify-content: center
+    }
+
+    .col-md-3 {
+        flex: 0 0 25%;
+        max-width: 25%;
+        padding: 0 15px;
+        margin-bottom: 30px;
+    }
+
+    .card-body {
+        background: rgba(0, 0, 0, 0.603);
+        border-radius: 10px;
+        box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.3);
+        padding: 20px;
+        height: 100%;
+    }
+
+    .card-title {
+        font-size: 24px;
+        font-weight: bold;
+        margin-bottom: 15px;
+        color: #fff;
+        text-align: center;
+    }
+
+    .card-text {
+        font-size: 18px;
+        margin-bottom: 20px;
+        color: #fff;
+        text-align: center;
+    }
+
+    .card-img-top {
+        max-width: 100%;
+        height: auto;
+        border-radius: 10px;
+    }
+</style>
+<h1 class="row">Insert title here please!</h1>
+<div class="container mt-3">
+
+    <div class="row">
+
+
+        {% if is_granted('ROLE_ADMIN') or is_granted('ROLE_NEW') %}
+        <div class="col-md-3">
+            <div class="card-body">
+                <h5 class="card-title">Usuarios</h5>
+                <div class="card">
+                    <a href="{{ path('app_usuario_index') }}" class="row"> Administrar </a>
+                </div>
+            </div>
+        </div>
+        {% endif %}
+
+        {% if is_granted('ROLE_USER') %}
+        <div class="col-md-3">
+            <div class="card-body">
+                <h5 class="card-title">TITLE</h5>
+                <div class="card">
+                    <a href="{{ path('app_TITLE_nuevo') }}" class="row"> TITLE</a>
+                </div>
+            </div>
+        </div>
+        {% endif %}
+
+        {% if is_granted('ROLE_CLIENTE') %}
+        <div class="col-md-3">
+            <div class="card-body">
+                <h5 class="card-title">TITLE</h5>
+                <div class="card">
+                    <a href="{{ path('app_TITLE') }}" class="row">TITLE</a>
+                </div>
+            </div>
+        </div>
+        {% endif %}
+
+    </div>
+</div>
+
+{# <div class="container mt3">
+    <h2>Bienvenido!</h2>
+    <h1>Insert title here please!</h1>
+    <a href="{{ path('app_usuario_index') }}">Ver</a>
+</div> #}
+
+{% endblock %}
